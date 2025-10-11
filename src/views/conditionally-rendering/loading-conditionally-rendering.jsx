@@ -27,7 +27,7 @@ export const LoadingConditionallyRendering = () => {
   return (
     <>
       {isLoading ? (
-        <div>İçerik Hazırlanıyor</div>
+        <div>İçerik Hazırlanıyor2</div>
       ) : (
         <div>
           {commentsData?.length > 0 ? (
