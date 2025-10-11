@@ -1,11 +1,13 @@
+import ReactCounter from "./counter";
+import InputState from "./input-state";
+import Toggle from "./toggle";
 
-
-const ReactInStatePage = () => {
-    return (
-        <div>
-            React in stata page
-        </div>
-    )
+function index() {
+  return (
+    //    <ReactCounter />
+    //  <Toggle /> 
+    <InputState />
+  );
 }
 
-export default ReactInStatePage
+export default index;
