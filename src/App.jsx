@@ -4,6 +4,9 @@
 // import { AndConditionallyRendering } from "./views/conditionally-rendering/and-conditionally-rendering";
 // import { LoadingConditionallyRendering } from "./views/conditionally-rendering/loading-conditionally-rendering";
 // import LocalStoragePage from "./views/local-storage";
+import DateAndTime from "./views/data-and-time";
+import DateAndCondition from "./views/data-and-time/data-and-time-condition";
+import DateAndConditionV2 from "./views/data-and-time/data-and-time-condition-v2";
 import ReactInStatePage from "./views/state/index";
 
 export default function MainApp() {
@@ -14,6 +17,9 @@ export default function MainApp() {
     // <AndConditionallyRendering />
     // <LoadingConditionallyRendering />
     // <LocalStoragePage />
-    <ReactInStatePage />
+    // <ReactInStatePage />
+    // <DateAndTime />
+    // <DateAndCondition />
+    <DateAndConditionV2 />
   );
 }
