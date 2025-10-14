@@ -29,7 +29,7 @@ Ekstra: Her eklenen ürünün yanına “Sil” butonu koy, tıklanınca o ürü
 
 
 
-🧩 Ödev 2: Gelişmiş Kayıt Formu (State Objesi ile)
+🧩 Ödev 3: Gelişmiş Kayıt Formu (State Objesi ile)
 🎯 Amaç:
 
 Bu ödevde amacın, formdaki birden fazla alanı tek bir state objesi içinde yönetmeyi öğrenmendir.
