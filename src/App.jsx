@@ -8,6 +8,7 @@ import DateAndTime from "./views/data-and-time";
 import DateAndCondition from "./views/data-and-time/data-and-time-condition";
 import DateAndConditionV2 from "./views/data-and-time/data-and-time-condition-v2";
 import ReactInStatePage from "./views/state/index";
+import TodoApp from "./views/todo-app";
 
 export default function MainApp() {
   //TODO: Cart içersinde tıklanabilme özelliği kazandıralım
@@ -20,6 +21,7 @@ export default function MainApp() {
     // <ReactInStatePage />
     // <DateAndTime />
     // <DateAndCondition />
-    <DateAndConditionV2 />
+    // <DateAndConditionV2 />
+    <TodoApp />
   );
 }
