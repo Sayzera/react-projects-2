@@ -1,9 +1,9 @@
-const TodoItem = ({ todo ,onDelete,toggleTodo }) => {
+const TodoItem = ({ todo, onDelete, toggleTodo }) => {
   return (
     <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
       <div className="todo-content">
         <button className={`todo-checkbox ${todo.completed ? "checked" : ""}`} onClick={() => {
-            toggleTodo(todo.id)
+          toggleTodo(todo.id)
         }}>
           {todo.completed && <span className="checkmark">✓</span>}
         </button>
@@ -18,19 +18,22 @@ const TodoItem = ({ todo ,onDelete,toggleTodo }) => {
             backgroundColor: todo.categoryColor,
           }}
         >
-            {todo.category}
+          {todo.category}
         </span>
 
 
         <button
-         className="delete-btn"
-         title="Delete Task"
-         onClick={() => {
-            onDelete(todo.id)
-         }}
+          className="delete-btn"
+          title="Delete Task"
+          onClick={() => {
+            const confirmation = window.confirm("Sileceğinize emin misiniz? Siliniyor, sonra karışmam!");                   // silmek için emin misin
+            if (confirmation) {
+              onDelete(todo.id);
+            }
+          }}
         >
-            x
-            
+          x
+
         </button>
       </div>
     </div>
