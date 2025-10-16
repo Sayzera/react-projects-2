@@ -6,16 +6,15 @@ import { TodoItem } from "./todo-item";
 /**
  * Todo her eklendiğinde scroll otomatik olarak en alta gelsin
  * CSS özelliği olarak scroll barı daha ince olsun
- * sileceğim bana emin misiniz bak siliyorum  sonra karışmam desin  
+ * sileceğim bana emin misiniz bak siliyorum  sonra karışmam desin
  * Ben hangi taskı ne zaman ekledim bana göstersin tarih ve saat olarak
  * Eğer task belirtilen alanın genişliğini aşıyorsa otomatik olarak alt satıra atsın /
  */
 
 /* sileceğim bana emin misiniz bak siliyorum  sonra karışmam desin  // YAPILDI
- * Eğer task belirtilen alanın genişliğini aşıyorsa otomatik olarak alt satıra atsın // yapıldı css' de  
+ * Eğer task belirtilen alanın genişliğini aşıyorsa otomatik olarak alt satıra atsın // yapıldı css' de
  * word-break: break-word; bu ve white-space: normal; bu
  */
-
 
 const categories = [
   { name: "Work", color: "#2196F3" },
@@ -57,6 +56,38 @@ const TodoApp = () => {
       setNewTask("");
     }
   };
+
+  const editTodo = (id, todo) => {
+    // setTodos((prev) => {
+    //   return prev.map((todo) => {
+    //     if (todo.id === id) {
+    //       return {
+    //         ...todo,
+    //         text: todo,
+    //       };
+    //     }
+
+    //     return todo;
+    //   });
+    // });
+
+    setTodos((prev) =>
+      prev.map((todoItem) => {
+        if (todoItem.id === id) {
+          return {
+            ...todoItem,
+            text: todo,
+          };
+        }
+
+        return todoItem;
+      })
+    );
+  };
+
+
+  console.log(todos, "todos")
+
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -104,6 +135,7 @@ const TodoApp = () => {
               key={todo.id}
               todo={todo}
               toggleTodo={toggleTodo}
+              editTodo={editTodo}
               onDelete={deleteTodo}
             />
           ))}
