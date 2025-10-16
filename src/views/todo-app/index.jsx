@@ -87,7 +87,7 @@ const TodoApp = () => {
   return (
     <div className="todo-app">
       <div className="todo-container">
-        <h1 className="todo-title">Tüm Görevler</h1>
+        <h1 className="todo-title">Tüm Görevler 2</h1>
         <TodoInput
           setNewTask={setNewTask}
           newTask={newTask}
