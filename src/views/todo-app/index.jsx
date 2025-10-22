@@ -1,7 +1,11 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { TodoInput } from "./todo-input";
 import { TodoItem } from "./todo-item";
+import { addData, deleteData } from "../../services/firebase";
+
+import { firebaseDB } from "../../config/firebase";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
 
 /**
  * Todo her eklendiğinde scroll otomatik olarak en alta gelsin
@@ -42,6 +46,46 @@ const TodoApp = () => {
     defaultCategory.color
   );
 
+
+
+  async function getTodosToFirebase() {
+
+
+
+    const q = query(collection(firebaseDB, "todos"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const tempTodos = [];
+      querySnapshot.forEach((doc) => {
+
+        tempTodos.push({
+          ...doc.data(),
+          docId: doc.id
+        });
+      });
+
+      setTodos(tempTodos)
+    });
+
+    // const querySnapshot = await getDocs(collection(firebaseDB, "todos"));
+    // const tempData = []
+    // querySnapshot.forEach((doc) => {
+    //   // console.log(`${doc.id} => ${doc.data()}`);
+    //   tempData.push(doc.data())
+    // });
+
+    // setTodos(tempData)
+  }
+
+  useEffect(() => {
+    getTodosToFirebase()
+  }, [])
+
+
+
+  // React.useEffect(() => {
+  //   addData()
+  // }, [])
+
   const addTodo = () => {
     if (newTask.trim() != "") {
       const newTodo = {
@@ -51,6 +95,10 @@ const TodoApp = () => {
         category: newCategory,
         categoryColor: newCategoryColor,
       };
+
+
+      addData('todos', newTodo)
+
 
       setTodos([...todos, newTodo]);
       setNewTask("");
@@ -83,6 +131,8 @@ const TodoApp = () => {
         return todoItem;
       })
     );
+
+
   };
 
 
@@ -90,7 +140,10 @@ const TodoApp = () => {
 
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    const todo = todos.find((todo) => todo.id === id)
+    // setTodos(todos.filter((todo) => todo.id !== id));
+    deleteData('todos', todo.docId)
+
   };
 
   const toggleTodo = (id) => {

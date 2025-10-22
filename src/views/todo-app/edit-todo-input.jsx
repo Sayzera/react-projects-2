@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const EditTodoInput = ({ editTodo, id, todoText }) => {
+const EditTodoInput = ({ editTodo, id, todoText, setCloseEdit }) => {
   const [todo, setTodo] = useState(todoText);
 
 
@@ -18,14 +18,18 @@ const EditTodoInput = ({ editTodo, id, todoText }) => {
         className="todo-input"
         value={todo}
         onChange={(e) => {
-            setTodo(e.target.value)
+          setTodo(e.target.value)
         }}
         placeholder="Görev giriniz"
       />
       <button className="add-btn"
-       onClick={() => {
-        editTodo(id, todo)
-       }}
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          editTodo(id, todo)
+          setCloseEdit(false)
+
+        }}
       >Güncelle</button>
     </div>
   );

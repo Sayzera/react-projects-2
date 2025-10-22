@@ -25,3 +25,11 @@ export default function MainApp() {
     <TodoApp />
   );
 }
+
+
+
+/**
+ * 20.10.2025
+ * Firebase kullanarak todolarımızı silelim
+ * Firebase kullanarak todolarımızı güncelleyelim
+ */

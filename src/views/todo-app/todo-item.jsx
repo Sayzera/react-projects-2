@@ -19,6 +19,7 @@ const TodoItem = ({ todo, onDelete, toggleTodo, editTodo }) => {
             id={todo.id}
             editTodo={editTodo}
             todoText={todo.text}
+            setCloseEdit={setIsDblClickEditTodo}
           />
         ) : (
           <>
