@@ -27,12 +27,7 @@ export default function MainApp() {
     // <DateAndTime />
     // <DateAndCondition />
     // <DateAndConditionV2 />
-    // <TodoApp />
-    // <ExampleUseEffect />
-    // <SimpleExampleofUseEffect />
-    <GetUsersFromApi />
-    // <HeaderControlWithUseEffect />
-    // <SearchBarUseEffect />
+    <TodoApp />
   );
 }
 
