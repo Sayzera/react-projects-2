@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { TodoInput } from "./todo-input";
 import { TodoItem } from "./todo-item";
-import { addData, deleteData, updateData } from "../../services/firebase";
+import { addData, deleteData } from "../../services/firebase";
 
 import { firebaseDB } from "../../config/firebase";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
@@ -99,6 +99,7 @@ const TodoApp = () => {
 
       addData('todos', newTodo)
 
+
       setTodos([...todos, newTodo]);
       setNewTask("");
     }
@@ -121,13 +122,6 @@ const TodoApp = () => {
     setTodos((prev) =>
       prev.map((todoItem) => {
         if (todoItem.id === id) {
-          // updateData('todos', id, todo)
-          // console.log(docId, "id")
-          console.log(todoItem.docId, "todoitem.docid")
-          updateData('todos', todoItem.docId, { text: todo })
-
-          console.log(todoItem.text, "todoText")
-          console.log(todo, "todo")
           return {
             ...todoItem,
             text: todo,
@@ -137,16 +131,18 @@ const TodoApp = () => {
         return todoItem;
       })
     );
+
+
   };
+
+
   console.log(todos, "todos")
 
-  const deleteTodo = (id) => {
 
+  const deleteTodo = (id) => {
     const todo = todos.find((todo) => todo.id === id)
     // setTodos(todos.filter((todo) => todo.id !== id));
-    // console.log(todo.docId, "docId")
     deleteData('todos', todo.docId)
-    // console.log(todo.docId, "docId123123")
 
   };
 

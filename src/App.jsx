@@ -9,6 +9,11 @@ import DateAndCondition from "./views/data-and-time/data-and-time-condition";
 import DateAndConditionV2 from "./views/data-and-time/data-and-time-condition-v2";
 import ReactInStatePage from "./views/state/index";
 import TodoApp from "./views/todo-app";
+import ExampleUseEffect from "./views/use-effect";
+import SimpleExampleofUseEffect from "./views/use-effect/index2";
+import GetUsersFromApi from "./views/use-effect/index3";
+import HeaderControlWithUseEffect from "./views/use-effect/index4";
+import SearchBarUseEffect from "./views/use-effect/index5";
 
 export default function MainApp() {
   //TODO: Cart içersinde tıklanabilme özelliği kazandıralım
@@ -22,7 +27,12 @@ export default function MainApp() {
     // <DateAndTime />
     // <DateAndCondition />
     // <DateAndConditionV2 />
-    <TodoApp />
+    // <TodoApp />
+    // <ExampleUseEffect />
+    // <SimpleExampleofUseEffect />
+    <GetUsersFromApi />
+    // <HeaderControlWithUseEffect />
+    // <SearchBarUseEffect />
   );
 }
 
